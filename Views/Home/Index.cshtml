@@ -1,0 +1,71 @@
+﻿@model List<Sartor67.Models.Product>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero__media">
+        <img src="~/images/hero.jpg" alt="Sartor 67 Collection" class="hero__img" />
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+        <p class="hero__subtitle">New Collection</p>
+        <h1 class="hero__title">The Art of<br><em>Italian Excellence</em></h1>
+        <a href="#" class="hero__cta">DISCOVER MORE</a>
+    </div>
+</section>
+
+<!-- SEÇÃO: DESTAQUE EDITORIAL -->
+<section class="editorial">
+    <div class="editorial__text">
+        <p class="editorial__label">UNIVERSE</p>
+        <h2 class="editorial__title">Crafted for the<br><em>Extraordinary Man</em></h2>
+        <p class="editorial__desc">Since 1967, Sartor 67 has been synonymous with the finest Italian tailoring, combining unparalleled craftsmanship with the most precious fabrics in the world.</p>
+        <a href="#" class="btn-link">EXPLORE THE UNIVERSE</a>
+    </div>
+    <div class="editorial__image">
+        <img src="~/images/editorial.jpg" alt="Editorial" />
+    </div>
+</section>
+
+<!-- SEÇÃO: GRID DE COLEÇÃO -->
+<section class="collection">
+    <div class="collection__header">
+        <p class="collection__label">NEW ARRIVALS</p>
+        <h2 class="collection__title">The Collection</h2>
+    </div>
+    <div class="collection__grid">
+        @foreach (var product in Model)
+        {
+            <a asp-controller="Home" asp-action="Product" asp-route-id="@product.Id" class="product-card">
+                <div class="product-card__img-wrap">
+                    <img src="~/images/@product.Image" alt="@product.Name" />
+                </div>
+                <div class="product-card__info">
+                    <p class="product-card__category">@product.Category</p>
+                    <h3 class="product-card__name">@product.Name</h3>
+                    <p class="product-card__price">@product.Price</p>
+                </div>
+            </a>
+        }
+    </div>
+    <div class="collection__footer">
+        <a href="#" class="btn-link">VIEW ALL PRODUCTS</a>
+    </div>
+</section>
+
+<!-- SEÇÃO: BANNER MADE TO MEASURE -->
+<section class="mtm">
+    <div class="mtm__media">
+        <img src="~/images/mtm.jpg" alt="Made to Measure" class="mtm__img" />
+    </div>
+    <div class="mtm__overlay"></div>
+    <div class="mtm__content">
+        <p class="mtm__label">EXCLUSIVITY</p>
+        <h2 class="mtm__title">Made to<br><em>Measure</em></h2>
+        <p class="mtm__desc">A personal journey into the world of bespoke tailoring, where every detail is crafted exclusively for you.</p>
+        <a href="#" class="hero__cta">DISCOVER THE SERVICE</a>
+    </div>
+</section>

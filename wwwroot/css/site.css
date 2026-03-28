@@ -1,0 +1,649 @@
+/* =====================
+   RESET & BASE
+===================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: #1a1a1a;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 70px;
+    background-color: transparent;
+    transition: background-color 0.4s ease;
+}
+
+.navbar.scrolled {
+    background-color: #fff;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.navbar__left,
+.navbar__right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+}
+
+.navbar__right {
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.navbar__center { flex: 0 0 auto; }
+
+.navbar__logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 8px;
+    color: #fff;
+    transition: color 0.4s ease;
+}
+
+.navbar.scrolled .navbar__logo { color: #1a1a1a; }
+
+.navbar__menu a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease, color 0.4s ease;
+}
+
+.navbar.scrolled .navbar__menu a { color: #1a1a1a; }
+.navbar__menu a:hover { opacity: 0.6; }
+
+.navbar__icon {
+    color: #fff;
+    transition: opacity 0.3s ease, color 0.4s ease;
+    display: flex;
+    align-items: center;
+}
+
+.navbar.scrolled .navbar__icon { color: #1a1a1a; }
+.navbar__icon:hover { opacity: 0.6; }
+
+/* =====================
+   HERO
+===================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero__media { width: 100%; height: 100%; }
+
+.hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.25) 0%,
+        rgba(0,0,0,0.1) 50%,
+        rgba(0,0,0,0.45) 100%
+    );
+}
+
+.hero__content {
+    position: absolute;
+    bottom: 100px;
+    left: 80px;
+    color: #fff;
+}
+
+.hero__subtitle {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+.hero__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 36px;
+}
+
+.hero__title em { font-style: italic; font-weight: 300; }
+
+.hero__cta {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+    padding-bottom: 4px;
+    transition: border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.hero__cta:hover { border-color: #fff; opacity: 0.7; }
+
+/* =====================
+   EDITORIAL
+===================== */
+.editorial {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+}
+
+.editorial__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    background-color: #f5f0eb;
+}
+
+.editorial__label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 24px;
+}
+
+.editorial__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 28px;
+}
+
+.editorial__title em { font-style: italic; }
+
+.editorial__desc {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #666;
+    max-width: 400px;
+    margin-bottom: 40px;
+}
+
+.editorial__image { overflow: hidden; }
+
+.editorial__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.editorial__image:hover img { transform: scale(1.03); }
+
+.btn-link {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 4px;
+    transition: opacity 0.3s ease;
+}
+
+.btn-link:hover { opacity: 0.5; }
+
+/* =====================
+   COLLECTION GRID
+===================== */
+.collection {
+    padding: 100px 80px;
+    background-color: #fff;
+}
+
+.collection__header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.collection__label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 16px;
+}
+
+.collection__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: #1a1a1a;
+}
+
+.collection__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.product-card { cursor: pointer; }
+
+.product-card__img-wrap {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background-color: #f5f0eb;
+    margin-bottom: 20px;
+}
+
+.product-card__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-card__img-wrap img { transform: scale(1.05); }
+
+.product-card__category {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.product-card__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.product-card__price {
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+.collection__footer {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* =====================
+   MADE TO MEASURE
+===================== */
+.mtm {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+}
+
+.mtm__media { width: 100%; height: 100%; }
+
+.mtm__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.mtm__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.1) 100%
+    );
+}
+
+.mtm__content {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
+    color: #fff;
+    max-width: 480px;
+}
+
+.mtm__label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.mtm__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.mtm__title em { font-style: italic; }
+
+.mtm__desc {
+    font-size: 13px;
+    line-height: 1.9;
+    opacity: 0.85;
+    margin-bottom: 40px;
+}
+
+/* =====================
+   FOOTER
+===================== */
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 80px 80px 40px;
+}
+
+.footer__top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer__col h4 {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.footer__col a {
+    display: block;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.footer__col a:hover { color: #fff; }
+
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.footer__bottom span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.35);
+}
+
+.footer__legal { display: flex; gap: 32px; }
+
+.footer__legal a {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.35);
+    transition: color 0.3s ease;
+}
+
+.footer__legal a:hover { color: #fff; }
+/* =====================
+   PRODUCT DETAIL PAGE
+===================== */
+.product-detail {
+    padding-top: 70px;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.product-detail__back {
+    padding: 32px 80px 0;
+}
+
+.back-link {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #1a1a1a;
+}
+
+.product-detail__main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    padding: 40px 80px 100px;
+}
+
+.product-detail__gallery {
+    position: sticky;
+    top: 90px;
+    height: fit-content;
+}
+
+.product-detail__img-wrap {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background-color: #f5f0eb;
+}
+
+.product-detail__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-detail__category {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 12px;
+}
+
+.product-detail__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+}
+
+.product-detail__price {
+    font-size: 18px;
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+}
+
+.product-detail__divider {
+    width: 100%;
+    height: 1px;
+    background-color: #e8e8e8;
+    margin-bottom: 32px;
+}
+
+.product-detail__desc {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.product-detail__label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.product-detail__sizes {
+    margin-bottom: 32px;
+}
+
+.size-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.size-btn {
+    width: 52px;
+    height: 52px;
+    border: 1px solid #e8e8e8;
+    background: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 1px;
+}
+
+.size-btn:hover {
+    border-color: #1a1a1a;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.size-btn.selected {
+    border-color: #1a1a1a;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.add-to-cart {
+    width: 100%;
+    height: 56px;
+    background-color: #1a1a1a;
+    color: #fff;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #333;
+}
+
+.product-detail__details {
+    margin-bottom: 40px;
+    padding-top: 32px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.details-list {
+    list-style: none;
+    padding: 0;
+}
+
+.details-list li {
+    font-size: 13px;
+    color: #666;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    letter-spacing: 0.5px;
+}
+
+.details-list li::before {
+    content: "— ";
+    color: #999;
+}
+
+.product-detail__measurements {
+    padding-top: 32px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.size-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.size-table th {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #e8e8e8;
+    font-weight: 500;
+}
+
+.size-table td {
+    padding: 12px 8px;
+    color: #666;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 12px;
+}
+
+.size-table tr:hover td {
+    background-color: #f9f9f9;
+}

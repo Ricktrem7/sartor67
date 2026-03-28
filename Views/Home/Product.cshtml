@@ -1,0 +1,86 @@
+@model Sartor67.Models.Product
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="product-detail">
+
+    <!-- VOLTAR -->
+    <div class="product-detail__back">
+        <a href="/" class="back-link">← BACK TO COLLECTION</a>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="product-detail__main">
+
+        <!-- IMAGEM -->
+        <div class="product-detail__gallery">
+            <div class="product-detail__img-wrap">
+                <img src="~/images/@Model.Image" alt="@Model.Name" />
+            </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="product-detail__info">
+
+            <p class="product-detail__category">@Model.Category</p>
+            <h1 class="product-detail__name">@Model.Name</h1>
+            <p class="product-detail__price">@Model.Price</p>
+
+            <div class="product-detail__divider"></div>
+
+            <p class="product-detail__desc">@Model.Description</p>
+
+            <!-- TAMANHOS -->
+            <div class="product-detail__sizes">
+                <p class="product-detail__label">SELECT SIZE</p>
+                <div class="size-grid">
+                    @foreach (var size in Model.Sizes)
+                    {
+                        <button class="size-btn">@size</button>
+                    }
+                </div>
+            </div>
+
+            <!-- BOTÃO ADD TO CART -->
+            <button class="add-to-cart">ADD TO CART</button>
+
+            <!-- DETALHES -->
+            <div class="product-detail__details">
+                <p class="product-detail__label">PRODUCT DETAILS</p>
+                <ul class="details-list">
+                    @foreach (var detail in Model.Details)
+                    {
+                        <li>@detail</li>
+                    }
+                </ul>
+            </div>
+
+            <!-- TABELA DE MEDIDAS -->
+            <div class="product-detail__measurements">
+                <p class="product-detail__label">SIZE GUIDE</p>
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>SIZE</th>
+                            <th>CHEST (cm)</th>
+                            <th>WAIST (cm)</th>
+                            <th>HIPS (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>44</td><td>88</td><td>74</td><td>92</td></tr>
+                        <tr><td>46</td><td>92</td><td>78</td><td>96</td></tr>
+                        <tr><td>48</td><td>96</td><td>82</td><td>100</td></tr>
+                        <tr><td>50</td><td>100</td><td>86</td><td>104</td></tr>
+                        <tr><td>52</td><td>104</td><td>90</td><td>108</td></tr>
+                        <tr><td>54</td><td>108</td><td>94</td><td>112</td></tr>
+                        <tr><td>56</td><td>112</td><td>98</td><td>116</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
